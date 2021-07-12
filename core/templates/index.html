@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+     <h1>
+        Авторы
+    </h1>
+
+    <div class="row mb-2">
+        {% for doctor in doctors %}
+            </div>
+            <div class="grid-posts">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <img {% if doctor.picture %} src='{{ doctor.picture.url }}' {% endif %} alt="Doctors image">
+                                <div class="card-body">
+                                    <h3 class="post-title">
+                                        <a class="text-dark" href="#">{{ doctor.fullname }}</a>
+                                    </h3>
+                                    <a href="{% url 'doctor' doctor.id %}">Continue reading</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+      </div><div class="row mb-2">
+        {% for new in news %}
+            </div>
+            <div class="grid-posts">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <img {% if new.picture %} src='{{ new.picture.url }}' {% endif %} alt="News image">
+                                <div class="card-body">
+                                    <h3 class="post-title">
+                                        <a class="text-dark" href="#">{{ new.title }}</a>
+                                    </h3>
+                                    <a href="{% url 'news' new.id %}">Continue reading</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+      </div>
+{% for contact in contacts %}
+    <h1>{{contact.phone_number}}</h1>
+{% endfor %}
+{% for address in address %}
+    <h1>{{address.address}}</h1>
+{% endfor %}
+ <form  action="" method="post" >
+		<h2>Форма обратной связи.</h2>
+        {%csrf_token%}
+		<p> <div class="titles">Ф.И.О*</div> <input class="input" name="fullname" type="text"/> </p>
+
+		<p> <div class="titles">Ваша область*</div> <input class="input" name="area" type="text"/> </p>
+
+		<p> <div class="titles">Номер телефона*</div> <input class="input" name="phone_number" type="text"/> </p>
+
+		<p><input value="Отправить" type="submit" /></p>
+	</form>
+{% endblock %}
