@@ -1,0 +1,241 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static 'style.css'%}" />
+
+    <title>Advice</title>
+</head>
+<body>
+  <nav>
+    <div class="nav container">
+      <div class="nav__content">
+        <div class="nav__left">
+          <a href="index.html" class="logo">
+              <img src="./images/logonew.svg" alt="">
+          </a>
+
+          <ul class="nav__items">
+            <li class="nav__item"><a href="index.html">О нас</a></li>
+            <li class="nav__item"><a href="index.html">Услуги</a></li>
+            <li class="nav__item"><a href="index.html">Ветеринары</a></li>
+            <li class="nav__item"><a href="index.html">Полезные советы</a></li>
+            <li class="nav__item"><a href="index.html">Новости</a></li>
+            <li class="nav__item"><a href="#contacts">Контакты</a></li>
+          </ul>
+        </div>
+
+        <div class="burger">
+          <div class="burger__line"></div>
+          <div class="burger__line"></div>
+          <div class="burger__line"></div>
+        </div>
+              
+        <div class="burger__content">
+          <ul class="burger__list">
+            <li class="berger__item">
+              <i class="fa fa-circle burger-fa"></i>
+              <a href="index.html" class="burger__link">О НАС</a>
+              <div class="burger__line-bottom"></div>
+            </li>
+            <li class="berger__item">
+              <i class="fa fa-circle burger-fa"></i>
+              <a href="index.html" class="burger__link">УСЛУГИ</a>
+              <div class="burger__line-bottom"></div>
+            </li>
+            <li class="berger__item">
+              <i class="fa fa-circle burger-fa"></i>
+              <a href="index.html" class="burger__link">ВЕТЕРИНАРЫ</a>
+              <div class="burger__line-bottom"></div>
+            </li>
+            <li class="berger__item">
+              <i class="fa fa-circle burger-fa"></i>
+              <a href="index.html" class="burger__link">ПОЛЕЗНЫЕ СОВЕТЫ</a>
+              <div class="burger__line-bottom"></div>
+            </li>
+            <li class="berger__item">
+              <i class="fa fa-circle burger-fa"></i>
+              <a href="index.html" class="burger__link">НОВОСТИ</a>
+              <div class="burger__line-bottom"></div>
+            </li>
+            <li class="berger__item">
+              <i class="fa fa-circle burger-fa"></i>
+              <a href="#contacts" class="burger__link">КОНТАКТЫ</a>
+              <div class="burger__line-bottom"></div>
+            </li>            
+          </ul>
+        </div>
+            
+        <a href="index.html" class="logo__mob">
+          <img src="./images/moblogo.svg" alt="">
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="adv">
+    <div class="container adv__content">
+      <div class="adv__box">
+        <img src="./images/adv__horse.png" alt="" class="adv__img">
+        {% for advice in advices %}
+        <div class="adv__text">
+          <h2 class="adv__title">{{advice.name}}</h2>
+        </div>
+        {% endfor %}
+      </div>  
+    </div>
+  </header>
+
+   <seciton class="rede">
+     <div class="container rede__content">
+        <div class="rede__box">
+          <div class="rede__text">
+            <h3 class="rede__title">Главная / Полезные советы</h3>
+            {% for advice in advices %}
+            <div class="rede__image">
+              {% if advice.picture %}
+              <img src="{{ advice.picture.url }}" alt="" class="rede__img">
+              {% endif %}
+            </div>
+            {% endfor %}
+            <p class="rede__descr">Независимо от всей мощи и силы такого благородного 
+              животного как лошадь, эти животные считаются достаточно хрупкими и восприимчивыми 
+              к различным недугам. Содержать лошадь — это огромная ответственность, требующая 
+              тщательного и постоянного ухода и контроля за состояние этого животного. </p>
+              
+               <h3 class="rede__subtitle">Кожные заболевания</h3>
+                <p class="rede__descr">Если лошадь стала объектом кожного заболевания, 
+                оно приносит колоссальные неудобства и проблемы, как животному, так и его владельцу. 
+                Самыми распространенными считают лишай и чесотку, оба заболевания достаточно трудно и 
+                долго вылечиваются, к тому же являются заразными и потенциально 
+                опасными для любых других животных и людей.</p>
+               
+                <h3 class="rede__subtitle">Лишай</h3>
+                <p class="rede__descr">Если лошадь стала объектом кожного заболевания, 
+                  оно приносит колоссальные неудобства и проблемы, как животному, так и его владельцу. 
+                  Самыми распространенными считают лишай и чесотку, оба заболевания достаточно трудно и 
+                  долго вылечиваются, к тому же являются заразными и потенциально 
+                  опасными для любых других животных и людей.</p>
+                  <h3 class="rede__subtitle">Симптомы:</h3>
+                  <p class="rede__descr"><i class="fa fa-circle"></i>на начальном этапе 
+                   лишай напоминает потертость на коже</p>
+                   <p class="rede__descr"><i class="fa fa-circle"></i>участки чуть позже 
+                     начинают шелушиться</p>
+                     <h3 class="rede__subtitle">Чесотка</h3>
+                <p class="rede__descr">Заболевание такого плана наблюдается обычно в зимнее 
+                  время, когда все лошади содержаться в стойлах. Чесоточный клещ попадает на 
+                  кожные участки животного и начинает свою паразитарную деятельность, что вызывает
+                   сильный зуд и дискомфорт у лошади. На тяжелой стадии чесотки лошади могут даже 
+                   погибать. </p>
+                   <h3 class="rede__subtitle">Симптомы:</h3>
+                 <p class="rede__descr"><i class="fa fa-circle"></i> появление гнойничков, пузырчатой сыпи и мокнущих 
+                   ранок с выпадением шерстки на груди, шее, около хвоста, на голове и конечностях</p>
+                 <p class="rede__descr"><i class="fa fa-circle"></i>кожа покрывается струпьями и сухими корками; 
+                   животное теряет вес и отказывается от пищи</p>
+                   <p class="rede__descr"> Стойло и все предметы быта нужно дезинфицировать, ветеринар назначает 
+                     определенную мазь от чесотки, участки с ранами нужно промывать теплой водой, 
+                     а также наносить на них парафиновое масло. </p>
+                     <!--  -->
+                     <h3 class="rede__subtitle">Мокрец</h3>
+                     <p class="rede__descr">Такое кожное заболевания у лошадей проявляется на пятках 
+                       копыт и в области путов ног. Из-за повышенной сырости подстилки, аллергии или 
+                       действия патогенных бактерий лошадь может стать объектом мокреца. В этих местах 
+                       часто образовываются ранки, через которые болезнетворные микробы могут проникать 
+                       в кровь и инфицировать ее.  </p>
+                        <h3 class="rede__subtitle">Симптомы:</h3>
+                      <p class="rede__descr"><i class="fa fa-circle"></i> раздражение, образование ранок и мелких язвочек под щетками конечностей</p>
+                      <p class="rede__descr"><i class="fa fa-circle"></i>намокание и выделение гноя в местах поражения</p>
+                      <p class="rede__descr"><i class="fa fa-circle"></i> лошадь постоянно поднимает свои конечности в стремлении почесать место 
+                       с мокрецом, а также неправильно ступает на копыта</p>
+                       <p class="rede__descr"> Ранки нужно постоянно промывать теплой водой, разбавленной антисептическим 
+                         препаратом, после чего кожу нужно насухо вытирать мягкой тканью. Раны обрабатывают порошком стрептоцида, 
+                         а места загрубевания кожи увлажняют маслом или вазелином. 
+                         После этого ветеринар назначает заживляющую мазь для ран, от владельца требуется
+                          замена подстилки и усиленная гигиена.</p>
+          </div>
+          
+        </div>
+          
+     <!-- knopka -->
+        <div class="rede__btn">
+            <a href="index.html">
+                <button class="btn button10">Вернуться на главную страницу</button>
+            </a>
+        </div> 
+     </div>
+   </seciton>
+
+  <a name="contacts"></a>
+  <footer class="footer">
+    <div class="container footer__content">
+     <div class="footer__text">
+       <img src="./images/logo2.png" alt=""> 
+       <h3 class="footer__subtitle"> «Если вы ищете новую ветеринарную 
+         клинику для ухода за любимой лошадью, коровой собакой или кошкой, 
+         не ищите дальше.  
+         Мы здесь, чтобы помочь!» 
+       </h3>                 
+     </div>
+ 
+     <div class="line__top"></div>
+       <div class="footer__menu">
+         <ul class="footer__menus">
+           <li class="footer__menu-descr"><a href="#">О нас</a></li>
+           <li class="footer__menu-descr"><a href="#"><i class="fa fa-circle"></i>Услуги</a></li>      
+           <li class="footer__menu-descr"><a href="#"><i class="fa fa-circle"></i>Ветеринары</a></li>      
+           <li class="footer__menu-descr"><a href="#"><i class="fa fa-circle fa__mob"></i>Новости</a></li>      
+           <li class="footer__menu-descr"><a href="#"><i class="fa fa-circle"></i>Полезные советы</a></li> 
+         </ul>
+ 
+           <p class="dropdown__descr">
+             <i class="fa fa-circle dropdown__img"></i>Контакты <i class="fa fa-caret-down"></i>
+           </p>
+ 
+           <div class="dropdown-content">
+             <a href="#">+996 (503) 94 23 13</a>
+             <a href="#">+996 (550) 63 47 98</a>
+             <a href="#">+996 (515) 52 77 16</a>
+           </div>
+     </div>  
+     <div class="line__bottom"></div>
+ 
+       <div class="footer__descr">
+         <p>Адрес: Г.Бишкек московская 207/5</p>
+       </div>
+ 
+       <div class="footer__links">
+         <a href="" class="footer__link"><img src="./images/facebook.svg" alt="" class=""></a>
+         <a href="" class="footer__link"><img src="./images/instagram.svg" alt="" class=""></a>
+         <a href="" class="footer__link"><img src="./images/telegram.svg" alt="" class=""></a>   
+      </div>
+      <p class="footer__copyright"><i class="fa fa-copyright"></i>
+       2021  Vet Kg  Все права защищены </p>
+   </div>
+  </footer>
+     
+     
+     <script
+       src="https://code.jquery.com/jquery-3.6.0.min.js"
+       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+       crossorigin="anonymous">
+     
+     </script>
+     
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+      <script src="{% static 'script.js'%} "></script>
+    
+</body>
+</html>

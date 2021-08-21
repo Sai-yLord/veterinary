@@ -1,68 +1,467 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../static/vet/css/style.css" />
+    <title>Vetkg</title>
+  </head>
+  <body>
 
-{% block content %}
-     <h1>
-        Авторы
-    </h1>
+    <!-- navigation bar -->
+  <nav>
+    <div class="nav container">
+      <div class="nav__content">
+        <div class="nav__left">
+          <a href="{% url 'index' %}" class="logo">
+              <img src="../static/images/logonew.svg" alt="">
+          </a>
 
-    <div class="row mb-2">
-        {% for doctor in doctors %}
-            </div>
-            <div class="grid-posts">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="card">
-                                <img {% if doctor.picture %} src='{{ doctor.picture.url }}' {% endif %} alt="Doctors image">
-                                <div class="card-body">
-                                    <h3 class="post-title">
-                                        <a class="text-dark" href="#">{{ doctor.fullname }}</a>
-                                    </h3>
-                                    <a href="{% url 'doctor' doctor.id %}">Continue reading</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-      </div><div class="row mb-2">
-        {% for new in news %}
-            </div>
-            <div class="grid-posts">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="card">
-                                <img {% if new.picture %} src='{{ new.picture.url }}' {% endif %} alt="News image">
-                                <div class="card-body">
-                                    <h3 class="post-title">
-                                        <a class="text-dark" href="#">{{ new.title }}</a>
-                                    </h3>
-                                    <a href="{% url 'news' new.id %}">Continue reading</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
+          <ul class="nav__items">
+            <li class="nav__item"><a href="#aboutUs">О нас</a></li>
+            <li class="nav__item"><a href="#services">Услуги</a></li>
+            <li class="nav__item"><a href="#veterinarians">Ветеринары</a></li>
+            <li class="nav__item"><a href="#tips">Полезные советы</a></li>
+            <li class="nav__item"><a href="#news">Новости</a></li>
+            <li class="nav__item"><a href="#contacts">Контакты</a></li>
+          </ul>
+        </div>
+
+        <div class="burger">
+          <div class="burger__line"></div>
+          <div class="burger__line"></div>
+          <div class="burger__line"></div>
+        </div>
+              
+        <div class="burger__content">
+          <ul class="burger__list">
+            <li class="berger__item">
+              <i class="fa fa-circle burger-fa"></i>
+              <a href="#aboutUs" class="burger__link">О НАС</a>
+              <div class="burger__line-bottom"></div>
+            </li>
+            <li class="berger__item">
+              <i class="fa fa-circle burger-fa"></i>
+              <a href="#services" class="burger__link">УСЛУГИ</a>
+              <div class="burger__line-bottom"></div>
+            </li>
+            <li class="berger__item">
+              <i class="fa fa-circle burger-fa"></i>
+              <a href="#veterinarians" class="burger__link">ВЕТЕРИНАРЫ</a>
+              <div class="burger__line-bottom"></div>
+            </li>
+            <li class="berger__item">
+              <i class="fa fa-circle burger-fa"></i>
+              <a href="#tips" class="burger__link">ПОЛЕЗНЫЕ СОВЕТЫ</a>
+              <div class="burger__line-bottom"></div>
+            </li>
+            <li class="berger__item">
+              <i class="fa fa-circle burger-fa"></i>
+              <a href="#news" class="burger__link">НОВОСТИ</a>
+              <div class="burger__line-bottom"></div>
+            </li>
+            <li class="berger__item">
+              <i class="fa fa-circle burger-fa"></i>
+              <a href="#contacts" class="burger__link">КОНТАКТЫ</a>
+              <div class="burger__line-bottom"></div>
+            </li>            
+          </ul>
+        </div>
+            
+        <a href="index.html " class="logo__mob">
+          <img src="../static/images/moblogo.svg" alt="">
+        </a>
       </div>
-{% for contact in contacts %}
-    <h1>{{contact.phone_number}}</h1>
-{% endfor %}
-{% for address in address %}
-    <h1>{{address.address}}</h1>
-{% endfor %}
- <form  action="" method="post" >
-		<h2>Форма обратной связи.</h2>
-        {%csrf_token%}
-		<p> <div class="titles">Ф.И.О*</div> <input class="input" name="fullname" type="text"/> </p>
+    </div>
+  </nav>
+    <!-- header  -->
+<header class="header">
+        
+    <div class="header__content container">
+     <div class="header__info">
+       <div class="header__bg">
+         <img src="../static/images/loshad_trava_progulka_117470_1600x1200 1.png" alt="" class="header__image">
+       </div>
+       <div class="header__text">
+        <h1 class="header__title">Лучшая сеть ветклиник в Кыргызстане</h1>
+        <p class="header__descr">Внезапно, непосредственные участники технического прогресса могут быть 
+            подвергнуты целой серии независимых исследований.  </p>
+       </div>
+   
+             
+      <div class="btn__buttons">
+        <button class="btn button1">Обратный звонок</button>
+        <a href="https://api.whatsapp.com/send?phone=00996500998877&text=&source=&data=" class="" target=""> 
+          <button class="btn button2">Написать нам <i class="fa fa-whatsapp"></i></button> </a>
+      </div> 
+    </div>
+  </div> 
+       
+</header>
+    <!-- О нас-->
+    <a name="aboutUs"></a>
+    <section class="info">
+    <div class="container info__content">
+    <div class="info__item">
+      <div class="info__item-img">
+        <img src="../static/images/infocow (1).png" alt="">
+          </div>
+       <div class="info__texts">
+           <h2 class="info__item-title">О нас</h2>
+           <h3 class="info__subtitle">Новые Возможности и Перспективы Развития</h3>
+           <p class="info__item-descr">Специалисты нашей ветеринарной клиники в Кыргызстане сами
+               являются владельцами животных – поэтому мы знаем обо всех сложностях не понаслышке. 
+               Наши ветеринары всегда готовы принять вашего питомца по предварительной записи, а 
+               в случае критического состояния – без очереди. В «Vet Kg» вы можете купить необходимые 
+               лекарства и корма даже глубокой ночью.<span id="dots">Все специалисты ветеринарной клиники «Vet Kg» обладают
+                высшим образованием в своей сфере, кроме того – каждый год наши ветеринары проходят курсы 
+                повышения квалификации, участвуют в конференциях и стажируются в лучших ветклиниках Кыргызстана. 
+                Для диагностики болезней собак, кошек и других животных, а также их лечения и профилактики используется
+                только современное и высокотехнологичное оборудование.</span><span id="more"></span>
+             
+              
 
-		<p> <div class="titles">Ваша область*</div> <input class="input" name="area" type="text"/> </p>
+               <div class="info__btn">
+                <button onclick="myFunction()" id="myBtn" class="btn button3">Читать Далее</button>
+              </div>
+          </div>            
+        </div>
+      </div> 
+      
+    </section>
+    <a name="services"></a>
+  <!-- Услуги -->
+ <section class="services">
+   <div class="container service__content">
+      <div class="service__text">
+           <h2 class="service__title">Наши Услуги</h2>
+           <img src="../static/images/kopyta.png" class= "service__img"alt="">
+           <h3 class="service__subtitle">В Vet Kg мы уверены, что ваш питомец - часть вашей и нашей семьи. 
+             Вот почему мы поставили перед собой задачу предоставить всестороннюю и <br> доброжелательную ветеринарную помощь, 
+             которая отвечает наилучшим интересам вас и вашего члена семьи.</h3>
+      </div>
+     <!-- first row -->
+     <div class="first_row">
+      {% for service in service %}
+      <div class="service__box1">
+        <div class="service__icon">
+            <div class="icon__img">
+              {% if service.picture %}
+              <img
+                   src='{{ service.picture.url }}'  alt="" class="imaq">
+                {% endif %}
+          </div>
+            <h3 class="icon__text">
+              <h3 class="icon__subtitle">{{ service.title }}</h3>
+              <p class="icon__descr">{{ service.description }}</p>
+      </div>
 
-		<p> <div class="titles">Номер телефона*</div> <input class="input" name="phone_number" type="text"/> </p>
+      </div>
+      {% endfor %}
+      </div>
+      </div>
+      </div>
+    </div>   
+    </div>    
+   </div>
+ </section>
+  <!-- Промо Акции -->
+<section class="infopro">
+  <div class="container infopro__content">
+   <div class="infopro__item">
+     <div class="infopro__item-texts">
+         <h2 class="infopro__item-title">Товары</h2>
+         <h3 class="infopro__subtitle">Качественные Корма Для Ваших Животных </h3>
+         <p class="infopro__item-descr">Кормление крупного рогатого скота должно быть качественным 
+           и сбалансированным. Правильный рацион увеличивает суточный удой, влияет на массу животного. 
+           Правильное питание снижает риск болезней, хорошо сказывается на работе 
+           внутренних органов. Корм для скота в гранулах важен при планировании 
+           увеличения поголовья КРС. Составление рациона коровы должно осуществляться специалистами, 
+           поскольку оно влияет на иммунитет животных и в целом на продуктивность.
+          <p>        
+          
+          </div>
+        <div class="infopro__item-img">
+          <img src="../static/images/infopro.png" alt="">
+      </div>           
+    </div>
+    <div class="infopro__promo">
+      <div class="promo__text">
+      <p class="promo__descr">Специальная акция для вас, 
+        забирайте все по цене трех кормов.</p>
+        <div class="promo__btn">
+          <button class="btn button4">Посмотреть</button>
+        </div>
+      </div>
 
-		<p><input value="Отправить" type="submit" /></p>
-	</form>
-{% endblock %}
+      <div class="promo__img">
+        <img src="../static/images/price__banner.png" alt="" class="">
+      </div>
+      <p class="price__decsr">1599 C</p>
+      <p class="line__price">2400 С</p>
+    </div>
+  </div> 
+</section>
+
+   <!-- Товары -->
+  <section class="product">
+    <div class="container product__content">
+        <div class="product__text">
+          <h2 class="product__title">Товары</h2>
+       </div>
+    
+      <div class="product__boxes1">
+        {% for product in products %}
+        <div class="product__box">
+         {% if product.picture %}
+         <img
+            src='{{ product.picture.url }}'  alt="" class="product__img">
+         {% endif %}
+            <h3 class="product__subtitle">{{ product.title }}</h3>
+           <p class="product__descr">{{ product.price }}</p>
+
+       </div>
+       {% endfor %}   
+       </div> 
+    </div>
+       <div class="promo__btn">
+        <button class="btn button5">Смотреть все товары</button>
+      </div>
+       <div class="product__value container">
+         <div class="value__item">
+               <div class="value__item-img">
+                   <img src="../static/images/quality.png" alt="" class="value__images">
+                 </div>
+               <div class="value__item-texts">        
+               <h3 class="value__subtitle">Качество</h3>
+               <p class="value__item-descr">Мы заботимся о здоровье 
+               ваших животных и поэтому продаем только экологически-чистый товар.
+                 <p>                             
+               </div>            
+           </div>
+          <div class="value__item">
+             <div class="value__item-img">
+              <img src="../static/images/like.png" alt="" class="value__images">
+             </div>
+             <div class="value__item-texts">        
+              <h3 class="value__subtitle">Доверие</h3>
+              <p class="value__item-descr">Ни одного отрицательного 
+               отзыва в нашу сторону говорит о нашем отношении к клиенту
+            <p>                             
+         </div>            
+        </div>
+            <div class="value__item">
+               <div class="value__item-img">
+                     <img src="../static/images/coin.png" alt="" class="value__images">
+                </div>
+              <div class="value__item-texts">        
+               <h3 class="value__subtitle">Лучшая цена</h3>
+                 <p class="value__item-descr">А так-же мы предлогаем вам бонус в 
+                              виде отличной цены, акций, скидок и различных бонусов
+                             <p>                             
+                </div>            
+              </div>
+           </div>
+          </div>
+          <a name="veterinarians"></a>
+  </section>
+
+  <!-- Ветеринары -->
+  <section class="staff">
+    <div class="container staff__content">
+        <div class="staff__text">
+           <h2 class="staff__title">Наши ветеринары</h2>
+              <img src="../static/images/kopyta.png" alt="">
+              <h3 class="staff__subtitle">В ветеринарной клинике Vet Kg вам пригодятся мудрость, энергия, 
+             опыт и сердце восьми лицензированных ветеринаров и штата хорошо обученных техников, помощников 
+             и администраторов. Наши ветеринары обладают высокой квалификацией, чтобы ухаживать за вашими питомцами, 
+             проводя ежегодные медицинские осмотры, консультируя по вопросам питания, ухаживая за больными или травмами, 
+             лечением хронических заболеваний, неотложной медицинской помощью и хирургическими процедурами.</h3>
+       </div>
+       <div class="staff__info">
+        {% for doc in doctors %}
+        <div class="staff__blog">
+             <div class="staff__img">
+               {% if doc.picture %}
+                <img  src='{{ doc.picture.url }}'  alt="" class="round">
+                {% endif %}
+        </div>
+
+        <div class="staff__descr">
+           <p><b>{{ doc.fullname }}</b> </p>
+           <p>{{ doc.description }}</p>
+        </div>
+    </div>
+        {% endfor %}
+   </div>
+ </section>
+ <!-- Полезные советы -->
+ <a name="tips"></a>
+ <section class="news">
+   <div class="container news__content">
+    <div class="news__text">
+      <h2 class="news__title">Полезные советы</h2>
+         <img src="../static/images/kopyta.png" alt="">
+         <h3 class="newss__subtitle">В ветеринарной клинике Richmond Road мы хотим быть вашим 
+           универсальным магазином полезных советов по уходу за домашними животными. Регулярно
+            проверяйте актуальную статью, которая может помочь улучшить качество жизни вашего 
+            питомца!</h3>
+       </div>
+       <div class="news__boxes">
+        {% for advice in advice %}
+        <div class="news__box">
+          <img {% if advice.picture %} src='{{ advice.picture.url }}' {% endif %} alt="" class="news__images" style="">
+           <h3 class="news__subtitle">{{ advice.title }}</h3>
+           <p class="news__descr">{{ advice.description }}</p>
+           </p>
+            <div class="news__btn">
+              <button class="btn button7"><a href="{% url 'advice' advice.id %}">Читать больше</a></button>
+            </div>
+        </div>
+        {% endfor %}
+       </div>
+   </div>
+ </section>
+<!--  Последние выпуски новостей  -->
+
+<a name="news"></a>
+<section class="article"style="background-image: url('../static/images/articlebg.png')">
+  <div class="container article__content">
+    <div class="article__text">
+      <h2 class="article__title"> Последние выпуски новостей </h2>
+         <img src="../static/images/kopyta.png" alt="">         
+    </div> 
+
+   <div class="article__boxes">
+    {% for item in news %}
+    <div class="article__slider">
+        <a class="article__card" href="topic.html">
+          <div class="article__box">
+            <h3 class="article__subtitle">{{ item.created }}<h3>
+            <img src="./images/line2.svg" alt="" class="">
+            <h3 class="article__subtitle">{{ item.title }}</h3>
+              <p class="article__descr">{{ item.description }}</p>
+          </div>
+        </a>
+        {% endfor %}
+   </div>
+  </div>
+</section>
+
+<!-- Раздел заявки -->
+<section class="form">
+  <div class="container form__content">   
+   <div class="form__active">
+    <div class="form__img">
+      <img src="../static/images/rabbit.png" alt="" class="">
+    </div>
+    
+    <div class="form__blank">
+      <h3 class="text__subtitle">Хотите оставить заявку?  </h3>
+      <form  action="http://127.0.0.1:8000/" method="post">
+        {% csrf_token %}
+        <div class="form__boxes">
+          <div class="form__box">
+            <input type="text" placeholder="ФИО" id="fullname" name="fullname" class="form__fullname">
+            <i class="fa fa-user-circle input-icon"></i>
+          </div>
+          <div class="form__box">
+            <input type="text" placeholder="Телефон" id="phone_number" name="phone_number" class="form__number">
+            <i class="fa fa-phone input-icon"></i>
+          </div>
+        </div>
+        <div class="form__boxes">
+          <div class="form__box">
+            <input type="text" placeholder="E-mail" id="email" name="email" class="form__email">
+            <i class="fa fa-envelope input-icon"></i>
+          </div>
+          <div class="form__box">
+            <input type="text" placeholder="Область" id="area" name="area" class="form__area">
+            <i class="fa fa-globe input-icon"></i>
+          </div>
+        </div>
+        <div class="form__btn">
+          <button class="btn button8" type="submit">Отправить</button>
+        </div>
+      </div>
+    </form>    
+    </div>
+   </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<a name="contacts"></a>
+<footer class="footer">
+   <div class="container footer__content">
+    <div class="footer__text">
+      <img src="../static/images/logo2.png" alt=""> 
+      <h3 class="footer__subtitle"> «Если вы ищете новую ветеринарную 
+        клинику для ухода за любимой лошадью, коровой собакой или кошкой, 
+        не ищите дальше.  
+        Мы здесь, чтобы помочь!» 
+      </h3>                 
+    </div>
+
+    <div class="line__top"></div>
+      <div class="footer__menu">
+        <ul class="footer__menus">
+          <li class="footer__menu-descr"><a href="#">О нас</a></li>
+          <li class="footer__menu-descr"><a href="#"><i class="fa fa-circle"></i>Услуги</a></li>      
+          <li class="footer__menu-descr"><a href="#"><i class="fa fa-circle"></i>Ветеринары</a></li>      
+          <li class="footer__menu-descr"><a href="#"><i class="fa fa-circle fa__mob"></i>Новости</a></li>      
+          <li class="footer__menu-descr"><a href="#"><i class="fa fa-circle"></i>Полезные советы</a></li> 
+        </ul>
+
+          <p class="dropdown__descr">
+            <i class="fa fa-circle dropdown__img"></i>Контакты <i class="fa fa-caret-down"></i>
+          </p>
+
+          <div class="dropdown-content">
+            <a href="#">+996 (503) 94 23 13</a>
+            <a href="#">+996 (550) 63 47 98</a>
+            <a href="#">+996 (515) 52 77 16</a>
+          </div>
+    </div>  
+    <div class="line__bottom"></div>
+
+      <div class="footer__descr">
+        <p>Адрес: Г.Бишкек московская 207/5</p>
+      </div>
+
+      <div class="footer__links">
+        <a href="" class="footer__link"><img src="./images/facebook.svg" alt="" class=""></a>
+        <a href="" class="footer__link"><img src="./images/instagram.svg" alt="" class=""></a>
+        <a href="" class="footer__link"><img src="./images/telegram.svg" alt="" class=""></a>   
+     </div>
+     <p class="footer__copyright"><i class="fa fa-copyright"></i>
+      2021  Vet Kg  Все права защищены </p>
+  </div>
+</footer>
+
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous">
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+ <script src="../static/js/script.js"></script>
+  </body>
+</html>
+
+

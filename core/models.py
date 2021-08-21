@@ -1,12 +1,15 @@
 from django.db import models
 
+
 from django.utils.translation import gettext_lazy as _
 
 
 class News(models.Model):
     title = models.CharField(_('Название'), max_length=50)
-    description = models.TextField()
+    description = models.TextField(_('Описание'))
     picture = models.ImageField(_('Изображение'), blank=True)
+    created = models.DateField(auto_now_add=True, null=True)
+    views = models.PositiveIntegerField(default=0)
 
 
     class Meta:
@@ -30,7 +33,7 @@ class Doctors(models.Model):
     def __str__(self):
         return self.fullname
 
-class Service(models.Model):
+class Services(models.Model):
     title = models.CharField(_('Название'), max_length=50)
     description = models.TextField(_('Подробности'))
     picture = models.ImageField(_('Изображение'), blank=True)
@@ -53,9 +56,10 @@ class AboutUs(models.Model):
     def __str__(self):
         return self.description
 
-class Advice(models.Model):
+class Advices(models.Model):
     title = models.CharField(_('Название'), max_length=50)
-    text = models.TextField(_('Текст'))
+    description = models.TextField(_('Текст'))
+    picture = models.ImageField(_('Изображение'), blank=True)
 
     class Meta:
         verbose_name = 'Полезный совет'
@@ -84,9 +88,21 @@ class Contacts(models.Model):
     def __str__(self):
         return self.phone_number
 
+class Contact(models.Model):
+    phone_number = models.CharField(_('Контакт'), max_length=15)
+    contact = models.ForeignKey(Contacts, on_delete=models.CASCADE, related_name='contact')
+
+    class Meta:
+        verbose_name = 'Контакт'
+        verbose_name_plural = 'Контакты'
+
+    def __str__(self):
+        return self.phone_number
+
 class Feedback(models.Model):
     fullname = models.CharField(_("Ф.И.О"), max_length=250)
     area = models.CharField(_('Ваша область'), max_length=150)
+    email = models.EmailField(_('Почта'), max_length=155, blank=True)
     phone_number = models.CharField(_('Ваш номер телефона'), max_length=20)
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -96,3 +112,15 @@ class Feedback(models.Model):
 
     def __str__(self):
         return self.phone_number
+
+class Products(models.Model):
+    title = models.CharField(_('Название'), max_length=50)
+    price = models.CharField(_('Цена'), max_length=255)
+    picture = models.ImageField(_('Изображение'), blank=True)
+
+    class Meta:
+        verbose_name = 'Товар'
+        verbose_name_plural = 'Товары'
+
+    def __str__(self):
+        return self.title
