@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+    />
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../static/vet/css/style.css" />
+    <title>Vetkg</title>
+  </head>
+  <body>
+    <nav>
+      <div class="nav container">
+        <div class="nav__content">
+          <div class="nav__left">
+            <a href="index.html" class="logo">
+              <img src="../static/images/logonew.svg" alt="" />
+            </a>
+
+            <ul class="nav__items">
+              <li class="nav__item"><a href="index.html">О нас</a></li>
+              <li class="nav__item"><a href="index.html">Услуги</a></li>
+              <li class="nav__item"><a href="index.html">Ветеринары</a></li>
+              <li class="nav__item">
+                <a href="index.html">Полезные советы</a>
+              </li>
+              <li class="nav__item"><a href="index.html">Новости</a></li>
+              <li class="nav__item"><a href="#contacts">Контакты</a></li>
+            </ul>
+          </div>
+
+          <div class="burger">
+            <div class="burger__line"></div>
+            <div class="burger__line"></div>
+            <div class="burger__line"></div>
+          </div>
+
+          <div class="burger__content">
+            <ul class="burger__list">
+              <li class="berger__item">
+                <i class="fa fa-circle burger-fa"></i>
+                <a href="index.html" class="burger__link">О НАС</a>
+                <div class="burger__line-bottom"></div>
+              </li>
+              <li class="berger__item">
+                <i class="fa fa-circle burger-fa"></i>
+                <a href="index.html" class="burger__link">УСЛУГИ</a>
+                <div class="burger__line-bottom"></div>
+              </li>
+              <li class="berger__item">
+                <i class="fa fa-circle burger-fa"></i>
+                <a href="index.html" class="burger__link">ВЕТЕРИНАРЫ</a>
+                <div class="burger__line-bottom"></div>
+              </li>
+              <li class="berger__item">
+                <i class="fa fa-circle burger-fa"></i>
+                <a href="index.html" class="burger__link">ПОЛЕЗНЫЕ СОВЕТЫ</a>
+                <div class="burger__line-bottom"></div>
+              </li>
+              <li class="berger__item">
+                <i class="fa fa-circle burger-fa"></i>
+                <a href="index.html" class="burger__link">НОВОСТИ</a>
+                <div class="burger__line-bottom"></div>
+              </li>
+              <li class="berger__item">
+                <i class="fa fa-circle burger-fa"></i>
+                <a href="#contacts" class="burger__link">КОНТАКТЫ</a>
+                <div class="burger__line-bottom"></div>
+              </li>
+            </ul>
+          </div>
+
+          <a href="index.html" class="logo__mob">
+            <img src="../static/images/moblogo.svg" alt="" />
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="adv">
+      <div class="container adv__content">
+        <div class="adv__box">
+          <img src="../static/images/adv__green.png" alt="" class="adv__img" />
+          <div class="adv__text">
+            <h2 class="adv__title">
+              Топ-10 советов по содержанию коров в жару
+            </h2>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <seciton class="rede">
+      <div class="container rede__content">
+        <div class="rede__box">
+          <div class="rede__text">
+            <h3 class="rede__title">Главная / Полезные советы</h3>
+
+            <div class="rede__image">
+              <img src="../static/images/cows.png" alt="" class="rede__img" />
+            </div>
+            <p class="rede__descr">
+              <i class="fa fa-circle"></i>Особое внимание стоит уделить водопою
+              животных. Так, вода – самый важный питательный элемент для коров
+              летом. Именно вода помогает охладить корову и улучшить потребление
+              корма. Необходимо обеспечить постоянный доступ к свежей, чистой и
+              прохладной воде, особенно после доения. Потребность коров в воде
+              возрастает вдвое при температуре около 27 градусов, так, вместо
+              120 литров воды в день животное выпивает 200 литров и более.
+            </p>
+            <p class="rede__descr">
+              <i class="fa fa-circle"></i>Следует регулярно мыть поилки и
+              располагать их таким образом, чтобы стимулировать коров пить воду.
+              Корыта для водопоя необходимо помещать в тени. Можно установить
+              автоматические поилки, например недорогие поплавковые системы для
+              поддержания уровня наличия воды.
+            </p>
+            <p class="rede__descr">
+              <i class="fa fa-circle"></i>Очень важно контролировать потребление
+              корма животными, так как наибольшим ограничением молочной
+              продуктивности при высоких температурах воздуха является
+              достаточное потребление корма. Его уменьшение означает, что
+              плотность всех питательных веществ в рационе нужно увеличить с
+              целью сохранения недоедов.
+            </p>
+            <p class="rede__descr">
+              <i class="fa fa-circle"></i>Можно увеличить на 10% долю
+              минерального корма и кормовой соли в рационе, поскольку тепловой
+              стресс про­воцирует сильное потоотделение и нарушение баланса
+              электролитов. Также дополнительно ввести в рацион антиоксиданты
+              (органический селен, витамины Е, С и каротиноиды), чтобы снизить
+              окислительные процессы в организме.
+            </p>
+            <p class="rede__descr">
+              <i class="fa fa-circle"></i>Для того, чтобы минимизировать
+              образование тепла, большую часть корма следует скармливать в
+              прохладное время суток. Например, в период между четвертым и
+              шестым часами утра и между девятым и одиннадцатым часами вечера.
+            </p>
+            <p class="rede__descr">
+              <i class="fa fa-circle"></i>Над загонами следует натянуть теневые
+              шторы и сделать навесы для того, чтобы в полдень животное не
+              находилось под прямыми лучами солнца.
+            </p>
+            <p class="rede__descr">
+              <i class="fa fa-circle"></i>Прохладный и свежий корм поедается
+              больше.
+            </p>
+            <p class="rede__descr">
+              <i class="fa fa-circle"></i>Можно использовать, несколько
+              вентиляторов для стимуляции теплоотдачи у животных. Тем не менее,
+              данный способ можно применять только, в условиях низкой влажности.
+              Например, медленные вентиляторы диаметром 1,2-1,5 м рекомендуется
+              устанавливать в ряд параллельно кормовым проходам и лежакам, а
+              также в зоне ожидания перед доильным залом, под наклоном 10-15° на
+              высоте 2,7 м. Обеспечение принудительного движения воздуха со
+              скоростью 1,3 м/с позволяет снизить температуру в помещении на 3,3
+              °С, а при скорости 2,5 м/с — на 5,6 °С.
+            </p>
+            <p class="rede__descr">
+              <i class="fa fa-circle"></i>Также следует открыть ворота, двери,
+              боковые стенки, если возможно, то вентиляционные отверстия на
+              крыше и перфорированные пластины на фронтонах для дополнительной
+              вентиляции.
+            </p>
+          </div>
+        </div>
+
+        <!-- knopka -->
+        <div class="rede__btn">
+          <a href="index.html">
+            <button class="btn button10">Вернуться на главную страницу</button>
+          </a>
+        </div>
+      </div>
+    </seciton>
+
+    <a name="contacts"></a>
+    <footer class="footer">
+      <div class="container footer__content">
+      <div class="footer__text">
+        <img src="../static/images/logo2.png" alt=""> 
+        <h3 class="footer__subtitle"> «Если вы ищете новую ветеринарную 
+          клинику для ухода за любимой лошадью, коровой собакой или кошкой, 
+          не ищите дальше.  
+          Мы здесь, чтобы помочь!» 
+        </h3>                 
+      </div>
+    
+      <div class="line__top"></div>
+      <div class="footer__menu">
+        <ul class="footer__menus">
+          <li class="footer__menu-descr">
+            <a href="#aboutUs">О нас</a>
+          </li>
+          <li class="footer__menu-descr">
+            <a href="#services">
+              <i class="fa fa-circle"></i>Услуги
+            </a>
+          </li>      
+          <li class="footer__menu-descr">
+            <a href="#veterinarians">
+              <i class="fa fa-circle"></i>Ветеринары
+            </a>
+          </li>      
+          <li class="footer__menu-descr">
+            <a href="#news">
+              <i class="fa fa-circle fa__mob"></i>Новости
+            </a>
+          </li>      
+          <li class="footer__menu-descr">
+            <a href="#tips">
+              <i class="fa fa-circle"></i>Полезные советы
+            </a>
+          </li> 
+        </ul>
+    
+        <div class="dropdown__descr">
+          <i class="fa fa-circle dropdown__img"></i>
+            <button class="dropdown__btn">Контакты</button> 
+          <i class="fa fa-caret-down"></i>
+    
+          <div class="dropdown-content">
+            <a href="tel:996503942313">+996 (503) 94 23 13</a>
+            <a href="tel:996550634798">+996 (550) 63 47 98</a>
+            <a href="tel:996515527716">+996 (515) 52 77 16</a>
+          </div>
+        </div>
+      </div>
+    
+      <div class="line__bottom"></div>
+        <div class="footer__descr">
+          <p>Адрес: Г.Бишкек московская 207/5</p>
+        </div>
+    
+        <div class="footer__links">
+          <a href="" class="footer__link">
+            <img src="../static/images/facebook.svg" alt="" class="">
+          </a>
+          <a href="" class="footer__link">
+            <img src="../static/images/instagram.svg" alt="" class="">
+          </a>
+          <a href="" class="footer__link">
+            <img src="../static/images/telegram.svg" alt="" class="">
+          </a>   
+        </div>
+        <p class="footer__copyright">
+          <i class="fa fa-copyright"></i>2021  Vet Kg  Все права защищены 
+        </p>
+      </div>
+    </footer>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="../static/js/script.js"></script>
+  </body>
+</html>

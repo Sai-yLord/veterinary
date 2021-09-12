@@ -27,7 +27,7 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../../static/vet/css/style.css" />
+    <link rel="stylesheet" href="../../static/vet/css/style.css">
     <title>Vetkg</title>
   </head>
   <body>
@@ -92,121 +92,114 @@
             </ul>
           </div>
 
-          <a href="index.html" class="logo__mob">
+          <a href="." class="logo__mob">
             <img src="../../static/images/moblogo.svg" alt="" />
           </a>
         </div>
       </div>
     </nav>
 
-    <header class="adv">
-      <div class="container adv__content">
-        <div class="adv__box">
-          <img src="../../static/images/adv__horse.png" alt="" class="adv__img" />
-          <div class="adv__text">
-            <h2 class="adv__title">Полезные советы</h2>
-          </div>
-        </div>
-      </div>
-    </header>
+<seciton class="topic">
+  <div class="container topic__content">
+    <div class="topic__box">
+      <div class="topic__text">
+        <h3 class="topic__title">Главная / Новости</h3>
 
-    <seciton class="rede">
-      <div class="container rede__content">
-        <div class="rede__box">
-          <div class="rede__text">
-            <div class="rede__image">
-              <img src="{{ advice.picture.url }}" alt="" class="rede__img" />
-            </div>
-            <p class="rede__title">{{ advice.title }}</p>
-            <p class="rede__descr">
-              {{ advice.description }}
-            </p>
-          </div>
-        </div>
-
-        <!-- knopka -->
-        <div class="rede__btn">
-          <a href="/">
-            <button class="btn button10">Вернуться на главную страницу</button>
-          </a>
-        </div>
-      </div>
-    </seciton>
-
-    <a name="contacts"></a>
-    <footer class="footer">
-      <div class="container footer__content">
-      <div class="footer__text">
-        <img src="../../static/images/logo2.png" alt=""> 
-        <h3 class="footer__subtitle"> «Если вы ищете новую ветеринарную 
-          клинику для ухода за любимой лошадью, коровой собакой или кошкой, 
-          не ищите дальше.  
-          Мы здесь, чтобы помочь!» 
-        </h3>                 
-      </div>
-    
-      <div class="line__top"></div>
-      <div class="footer__menu">
-        <ul class="footer__menus">
-          <li class="footer__menu-descr">
-            <a href="/#aboutUs">О нас</a>
-          </li>
-          <li class="footer__menu-descr">
-            <a href="/#services">
-              <i class="fa fa-circle"></i>Услуги
-            </a>
-          </li>      
-          <li class="footer__menu-descr">
-            <a href="/#veterinarians">
-              <i class="fa fa-circle"></i>Ветеринары
-            </a>
-          </li>      
-          <li class="footer__menu-descr">
-            <a href="/#news">
-              <i class="fa fa-circle fa__mob"></i>Новости
-            </a>
-          </li>      
-          <li class="footer__menu-descr">
-            <a href="/#tips">
-              <i class="fa fa-circle"></i>Полезные советы
-            </a>
-          </li> 
-        </ul>
-    
-        <div class="dropdown__descr">
-          <i class="fa fa-circle dropdown__img"></i>
-            <button class="dropdown__btn">Контакты</button> 
-          <i class="fa fa-caret-down"></i>
-    
-          <div class="dropdown-content">
-            <a href="tel:996503942313">+996 (503) 94 23 13</a>
-            <a href="tel:996550634798">+996 (550) 63 47 98</a>
-            <a href="tel:996515527716">+996 (515) 52 77 16</a>
-          </div>
-        </div>
-      </div>
-    
-      <div class="line__bottom"></div>
-        <div class="footer__descr">
-          <p>Адрес: Г.Бишкек московская 207/5</p>
-        </div>
-    
-        <div class="footer__links">
-          <a href="" class="footer__link">
-            <img src="../../static/images/facebook.svg" alt="" class="">
-          </a>
-          <a href="" class="footer__link">
-            <img src="../../static/images/instagram.svg" alt="" class="">
-          </a>
-          <a href="" class="footer__link">
-            <img src="../../static/images/telegram.svg" alt="" class="">
-          </a>
-        </div>
-        <p class="footer__copyright">
-          <i class="fa fa-copyright"></i>2021  Vet Kg  Все права защищены 
+        <h3 class="topic__subtitle">
+          {{ news.title}}
+        </h3>
+        <p class="topic__descr">
+          {{ news.description }}
         </p>
       </div>
-    </footer>
+      <div class="topic__image">
+        <img src="../static/images/okay.png" alt="" class="topic__img" />
+      </div>
+    </div>
+
+    <!-- knopka -->
+    <div class="topic__btn">
+      <a href="/">
+        <button class="btn button10">Вернуться на главную страницу</button>
+      </a>
+    </div>
+  </div>
+</seciton>
+
+<a name="contacts"></a>
+<footer class="footer">
+  <div class="container footer__content">
+  <div class="footer__text">
+    <img src="../static/images/logo2.png" alt=""> 
+    <h3 class="footer__subtitle"> «Если вы ищете новую ветеринарную 
+      клинику для ухода за любимой лошадью, коровой собакой или кошкой, 
+      не ищите дальше.  
+      Мы здесь, чтобы помочь!» 
+    </h3>                 
+  </div>
+
+  <div class="line__top"></div>
+  <div class="footer__menu">
+    <ul class="footer__menus">
+      <li class="footer__menu-descr">
+        <a href="#aboutUs">О нас</a>
+      </li>
+      <li class="footer__menu-descr">
+        <a href="#services">
+          <i class="fa fa-circle"></i>Услуги
+        </a>
+      </li>      
+      <li class="footer__menu-descr">
+        <a href="#veterinarians">
+          <i class="fa fa-circle"></i>Ветеринары
+        </a>
+      </li>      
+      <li class="footer__menu-descr">
+        <a href="#news">
+          <i class="fa fa-circle fa__mob"></i>Новости
+        </a>
+      </li>      
+      <li class="footer__menu-descr">
+        <a href="#tips">
+          <i class="fa fa-circle"></i>Полезные советы
+        </a>
+      </li> 
+    </ul>
+
+    <div class="dropdown__descr">
+      <i class="fa fa-circle dropdown__img"></i>
+        <button class="dropdown__btn">Контакты</button> 
+      <i class="fa fa-caret-down"></i>
+
+      <div class="dropdown-content">
+        <a href="tel:996503942313">+996 (503) 94 23 13</a>
+        <a href="tel:996550634798">+996 (550) 63 47 98</a>
+        <a href="tel:996515527716">+996 (515) 52 77 16</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="line__bottom"></div>
+    <div class="footer__descr">
+      <p>Адрес: Г.Бишкек московская 207/5</p>
+    </div>
+
+    <div class="footer__links">
+      <a href="" class="footer__link">
+        <img src="../../static/images/facebook.svg" alt="" class="">
+      </a>
+      <a href="" class="footer__link">
+        <img src="../../static/images/instagram.svg" alt="" class="">
+      </a>
+      <a href="" class="footer__link">
+        <img src="../../static/images/telegram.svg" alt="" class="">
+      </a>   
+    </div>
+    <p class="footer__copyright">
+      <i class="fa fa-copyright"></i>2021  Vet Kg  Все права защищены 
+    </p>
+  </div>
+</footer>
 
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"

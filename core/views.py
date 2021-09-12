@@ -1,109 +1,75 @@
-from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
-
-from django.db.models import F
-
-from core.models import Services, Doctors, News, AboutUs, Advices, Contacts, Address, Feedback, Products
+from django.core.paginator import Paginator
+from django.shortcuts import render
 
 
-def index(request):
-    doctors = Doctors.objects.all()
-    news = News.objects.all()
-    service = Services.objects.all()
-    about_us = AboutUs.objects.all()
-    advice = Advices.objects.all()
-    contacts = Contacts.objects.all()
-    address = Address.objects.all()
-    products = Products.objects.all()
-    context = {
-        'doctors': doctors,
-        'news': news,
-        'service': service,
-        'about_us': about_us,
-        'advice': advice,
-        'contacts': contacts,
-        'address': address,
-        'products': products,
+from django.views import View, generic
 
-    }
-    if request.method == 'POST':
-        fullname = request.POST['fullname']
-        email = request.POST['email']
-        phone_number = request.POST['phone_number']
-        area = request.POST['area']
-        feedback = Feedback(fullname=fullname, area=area, email=email, phone_number=phone_number)
-        feedback.save()
-        return render(request, 'index.html', context)
-    else:
-        return render(request, "index.html", context)
+from core.models import *
 
-
-def service(request, id):
-    service = Services.objects.get(id=id)
-    return render(request, "service.html", {"service": service})
-
-
-def doctor(request, id):
+def doctor_page(request, id):
     doctor = Doctors.objects.get(id=id)
-    return render(request, 'doctor.html', {'doctor': doctor})
+    return render(request, 'rede.html', {'doctor': doctor})
 
 
-def news(request, id):
+def news_page(request, id):
     news = News.objects.get(id=id)
-    return render(request, 'news.html', {'news': news})
+    return render(
+        request,
+        "topic2.html",
+        {"news":  news}
+    )
 
-def feedback(request):
-    if request.method == 'POST':
-        fullname = request.POST['fullname']
-        area = request.POST['area']
-        email = request.POST['email']
-        phone_number = request.POST['phone_number']
-        feedback = Feedback(fullname=fullname, area=area, email=email, phone_number=phone_number)
-        feedback.save()
-        return render(request, 'index.html')
-    else:
-        redirect(index)
 
-def services(request, id):
+# def service_page(request, id):
+#     services = Services.objects.get(id=id)
+#     return render(request, 'index.html', {
+#         'services': services
+#     })
 
-    services = Services.objects.get(id=id)
-    return render(request, 'index.html', {
-        'services': services
-    })
-
-def advice(request, id):
-
+def advice_page(request, id):
     advice = Advices.objects.get(id=id)
     return render(request, 'rede.html', {'advice': advice})
 
 
-def rebot(request):
-    doctors = Doctors.objects.all()
-    news = News.objects.all()
-    service = Services.objects.all()
-    about_us = AboutUs.objects.all()
-    advice = Advices.objects.all()
-    contacts = Contacts.objects.all()
-    address = Address.objects.all()
-    products = Products.objects.all()
-    context = {
-        'doctors': doctors,
-        'news': news,
-        'service': service,
-        'about_us': about_us,
-        'advice': advice,
-        'contacts': contacts,
-        'address': address,
-        'products': products,
+class Index(generic.ListView):
+    def get(self, request):
+        news = News.objects.all()
+        service = Services.objects.all()
+        about_us = AboutUs.objects.all()
+        doctors = Doctors.objects.all()
+        advice = Advices.objects.all()
+        contacts = Contacts.objects.all()
+        address = Address.objects.all()
+        contact_list = Products.objects.all()
+        paginator = Paginator(contact_list, 1)
 
-    }
-    if request.method == 'POST':
-        fullname = request.POST['fullname']
-        email = request.POST['email']
-        phone_number = request.POST['phone_number']
-        area = request.POST['area']
-        feedback = Feedback(fullname=fullname, area=area, email=email, phone_number=phone_number)
-        feedback.save()
-        return render(request, 'index.html', context)
-    else:
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+        context = {
+            'news': news,
+            'service': service,
+            'about_us': about_us,
+            'advice': advice,
+            'contacts': contacts,
+            'address': address,
+            'page_obj': page_obj,
+            'doctors': doctors,
+
+        }
         return render(request, "index.html", context)
+
+    def post(self, request):
+        if request.method == "GET":
+            return render(request, "index.html")
+        if request.method == 'POST':
+            fullname = request.POST['fullname']
+            email = request.POST['email']
+            phone_number = request.POST['phone_number']
+            area = request.POST['area']
+            feedback = Feedback(fullname=fullname, area=area, email=email, phone_number=phone_number)
+            feedback.save()
+            return render(request, 'index.html')
+        else:
+            return render(request, "index.html")
+
+

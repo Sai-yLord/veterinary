@@ -1,7 +1,8 @@
 from django.db import models
-
-
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils.translation import gettext_lazy as _
+
+from core.valid import validate_range_or_null
 
 
 class News(models.Model):
@@ -9,7 +10,6 @@ class News(models.Model):
     description = models.TextField(_('Описание'))
     picture = models.ImageField(_('Изображение'), blank=True)
     created = models.DateField(auto_now_add=True, null=True)
-    views = models.PositiveIntegerField(default=0)
 
 
     class Meta:
@@ -116,6 +116,7 @@ class Feedback(models.Model):
 class Products(models.Model):
     title = models.CharField(_('Название'), max_length=50)
     price = models.CharField(_('Цена'), max_length=255)
+    star = models.SmallIntegerField(_("Рейтинг"), null=True, default=0)
     picture = models.ImageField(_('Изображение'), blank=True)
 
     class Meta:
@@ -124,3 +125,15 @@ class Products(models.Model):
 
     def __str__(self):
         return self.title
+
+
+
+class Social(models.Model):
+    instagram = models.CharField(_("Instagram"), max_length=100)
+
+    def  __str__(self):
+        return self.instagram
+
+    class Meta:
+        verbose_name = _("Соц.сети")
+        verbose_name_plural = _("Соц.сети")

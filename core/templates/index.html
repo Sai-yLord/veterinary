@@ -102,7 +102,9 @@
    
              
       <div class="btn__buttons">
-        <button class="btn button1">Обратный звонок</button>
+        <button class="btn button1">
+          <a href="/#form">Обратный звонок</a>
+        </button>
         <a href="https://api.whatsapp.com/send?phone=00996500998877&text=&source=&data=" class="" target=""> 
           <button class="btn button2">Написать нам <i class="fa fa-whatsapp"></i></button> </a>
       </div> 
@@ -111,37 +113,33 @@
        
 </header>
     <!-- О нас-->
-    <a name="aboutUs"></a>
-    <section class="info">
-    <div class="container info__content">
+<a name="aboutUs"></a>
+<section class="info">
+  <div class="container info__content">
     <div class="info__item">
       <div class="info__item-img">
         <img src="../static/images/infocow (1).png" alt="">
-          </div>
-       <div class="info__texts">
-           <h2 class="info__item-title">О нас</h2>
-           <h3 class="info__subtitle">Новые Возможности и Перспективы Развития</h3>
-           <p class="info__item-descr">Специалисты нашей ветеринарной клиники в Кыргызстане сами
-               являются владельцами животных – поэтому мы знаем обо всех сложностях не понаслышке. 
-               Наши ветеринары всегда готовы принять вашего питомца по предварительной записи, а 
-               в случае критического состояния – без очереди. В «Vet Kg» вы можете купить необходимые 
-               лекарства и корма даже глубокой ночью.<span id="dots">Все специалисты ветеринарной клиники «Vet Kg» обладают
-                высшим образованием в своей сфере, кроме того – каждый год наши ветеринары проходят курсы 
-                повышения квалификации, участвуют в конференциях и стажируются в лучших ветклиниках Кыргызстана. 
-                Для диагностики болезней собак, кошек и других животных, а также их лечения и профилактики используется
-                только современное и высокотехнологичное оборудование.</span><span id="more"></span>
-             
-              
+      </div>
 
-               <div class="info__btn">
-                <button onclick="myFunction()" id="myBtn" class="btn button3">Читать Далее</button>
-              </div>
-          </div>            
+      <div class="info__texts">
+        <h2 class="info__item-title">О нас</h2>
+        <h3 class="info__subtitle">Новые Возможности и Перспективы Развития</h3>
+        <p class="info__item-descr">Специалисты нашей ветеринарной клиники в Кыргызстане сами являются владельцами животных – поэтому мы знаем обо всех сложностях не понаслышке. Наши ветеринары всегда готовы принять вашего питомца по предварительной записи, а в случае критического состояния – без очереди. В «Vet Kg» вы можете купить необходимые лекарства и корма даже глубокой ночью.<span id="more">Все специалисты ветеринарной клиники «Vet Kg» обладают высшим образованием в своей сфере, кроме того – каждый год наши ветеринары проходят курсы повышения квалификации, участвуют в конференциях и стажируются в лучших ветклиниках Кыргызстана. Для диагностики болезней собак, кошек и других животных, а также их лечения и профилактики используется только современное и высокотехнологичное оборудование.</span><span id="dots"></span>
+        </p>
+          
+        <div class="info__btn">
+          <button 
+            onclick="myFunction()" 
+            id="myBtn" 
+            class="btn button3"
+            >Читать Далее
+          </button>
         </div>
-      </div> 
-      
-    </section>
-    <a name="services"></a>
+      </div>            
+    </div>
+  </div> 
+</section>
+<a name="services"></a>
   <!-- Услуги -->
  <section class="services">
    <div class="container service__content">
@@ -197,48 +195,82 @@
           <img src="../static/images/infopro.png" alt="">
       </div>           
     </div>
-    <div class="infopro__promo">
-      <div class="promo__text">
-      <p class="promo__descr">Специальная акция для вас, 
-        забирайте все по цене трех кормов.</p>
-        <div class="promo__btn">
-          <button class="btn button4">Посмотреть</button>
-        </div>
-      </div>
 
-      <div class="promo__img">
-        <img src="../static/images/price__banner.png" alt="" class="">
-      </div>
-      <p class="price__decsr">1599 C</p>
-      <p class="line__price">2400 С</p>
+    <div class="promo__btn">
+      <button id="show_product" class="btn button4">Посмотреть</button>
     </div>
+    <div id="boxs" class="infopro__promo">
+      <div class="promo__text">
+        <p class="promo__descr">Специальная акция для<br> вас, 
+          забирайте все по<br> цене трех кормов.
+        </p>
+        
+        <div class="promo__img">
+          <img src="../static/images/price__banner.png" alt="" class="">
+        </div>
+        <p class="price__decsr">1599 C</p>
+        <p class="line__price">2400 С</p>
+      </div>
+    </div>
+
   </div> 
 </section>
 
    <!-- Товары -->
-  <section class="product">
-    <div class="container product__content">
-        <div class="product__text">
-          <h2 class="product__title">Товары</h2>
-       </div>
-    
-      <div class="product__boxes1">
-        {% for product in products %}
-        <div class="product__box">
-         {% if product.picture %}
-         <img
-            src='{{ product.picture.url }}'  alt="" class="product__img">
-         {% endif %}
-            <h3 class="product__subtitle">{{ product.title }}</h3>
-           <p class="product__descr">{{ product.price }}</p>
-
-       </div>
-       {% endfor %}   
-       </div> 
-    </div>
-       <div class="promo__btn">
-        <button class="btn button5">Смотреть все товары</button>
+  <section class="product" id="product">
+    <div class="product__content">
+      <div class="product__text">
+        <h2 class="product__title">Товары</h2>
       </div>
+    
+      <div class="product__boxes1 ">
+        {% for product in page_obj %}
+        <div class="product__box">
+          {% if product.picture %}
+          <img
+            src='{{ product.picture.url }}'  alt="" class="product__img">
+          {% endif %}
+          <div class="product__subtitle">
+            <h3>{{ product.title }}</h3>
+          </div>
+            <div class="rating rating2">
+                {% if product.star in 1 %}
+                <a href="#5"  data-value="1">★</a>
+                <a href="#4"  data-value="2">★</a>
+                <a href="#3"  data-value="3">★</a>
+                <a href="#2"  data-value="4">★</a>
+                <a href="#1"  data-value="5">★</a>
+                {% endif %}
+            </div>
+          <p class="product__descr">{{ product.price }}</p>
+        </div>
+        {% endfor %}
+      </div>
+        <div class="row justify-content-between align-items-center mt-4" style="center">
+            <div>
+                {% if page_obj.has_previous %}
+                    <a class="btn btn-pagination" href="?page=1" >First</a>
+                    <a class="btn btn-pagination" href="?page={{page_obj.previous_page_number}}">Previous</a>
+                {% endif %}
+
+                {% for p in page_obj.paginator.page_range %}
+                    {% if page_obj.number == p %}
+                        <a class="btn btn-primary" href="?page={{ p }}">{{ p }}</a>
+                    {% elif p > page_obj.number|add:'-2' and p < page_obj.number|add:'2' %}
+                        <a class="btn btn-pagination" href="?page={{ p }}">{{ p }}</a>
+                    {% endif %}
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                    <a class="btn btn-pagination" href="?page={{ page_obj.next_page_number }}">Next</a>
+                    <a class="btn btn-pagination" href="?page={{page_obj.paginator.num_pages}}">Last</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+    
+
        <div class="product__value container">
          <div class="value__item">
                <div class="value__item-img">
@@ -310,7 +342,7 @@
  <!-- Полезные советы -->
  <a name="tips"></a>
  <section class="news">
-   <div class="container news__content">
+   <div class="news__content">
     <div class="news__text">
       <h2 class="news__title">Полезные советы</h2>
          <img src="../static/images/kopyta.png" alt="">
@@ -322,10 +354,15 @@
        <div class="news__boxes">
         {% for advice in advice %}
         <div class="news__box">
-          <img {% if advice.picture %} src='{{ advice.picture.url }}' {% endif %} alt="" class="news__images" style="">
-           <h3 class="news__subtitle">{{ advice.title }}</h3>
-           <p class="news__descr">{{ advice.description }}</p>
-           </p>
+          <div class="news__info">
+            <div class="news__img">
+              <img {% if advice.picture %} src='{{ advice.picture.url }}' {% endif %} alt="" style="">
+            </div>
+            <div class="news__subtitle">
+              <h3>{{ advice.title }}</h3>
+             </div>
+             <p class="news__descr">{{ advice.description }}</p>
+          </div>
             <div class="news__btn">
               <button class="btn button7"><a href="{% url 'advice' advice.id %}">Читать больше</a></button>
             </div>
@@ -334,33 +371,34 @@
        </div>
    </div>
  </section>
-<!--  Последние выпуски новостей  -->
+<!-- Последние выпуски новостей -->
 
 <a name="news"></a>
 <section class="article"style="background-image: url('../static/images/articlebg.png')">
-  <div class="container article__content">
+  <div class="article__content">
     <div class="article__text">
       <h2 class="article__title"> Последние выпуски новостей </h2>
          <img src="../static/images/kopyta.png" alt="">         
     </div> 
 
-   <div class="article__boxes">
-    {% for item in news %}
+  <div class="article__boxes">
     <div class="article__slider">
-        <a class="article__card" href="topic.html">
-          <div class="article__box">
-            <h3 class="article__subtitle">{{ item.created }}<h3>
-            <img src="./images/line2.svg" alt="" class="">
-            <h3 class="article__subtitle">{{ item.title }}</h3>
-              <p class="article__descr">{{ item.description }}</p>
-          </div>
-        </a>
-        {% endfor %}
-   </div>
+      {% for news in news %}
+      <a class="article__card" href="{% url 'news' news.id %}">
+        <div class="article__box">
+          <h3 class="article__subtitle">{{ news.created }}<h3>
+          <img src="../static/images/line2.svg" alt="" class="">
+          <h3 class="article__subtitle">{{ news.title }}</h3>
+            <p class="article__descr">{{ news.description }}</p>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
   </div>
 </section>
 
 <!-- Раздел заявки -->
+<a name="form"></a>
 <section class="form">
   <div class="container form__content">   
    <div class="form__active">
@@ -405,52 +443,78 @@
 <!-- FOOTER -->
 <a name="contacts"></a>
 <footer class="footer">
-   <div class="container footer__content">
-    <div class="footer__text">
-      <img src="../static/images/logo2.png" alt=""> 
-      <h3 class="footer__subtitle"> «Если вы ищете новую ветеринарную 
-        клинику для ухода за любимой лошадью, коровой собакой или кошкой, 
-        не ищите дальше.  
-        Мы здесь, чтобы помочь!» 
-      </h3>                 
+  <div class="container footer__content">
+  <div class="footer__text">
+    <img src="../static/images/logo2.png" alt=""> 
+    <h3 class="footer__subtitle"> «Если вы ищете новую ветеринарную 
+      клинику для ухода за любимой лошадью, коровой собакой или кошкой, 
+      не ищите дальше.  
+      Мы здесь, чтобы помочь!» 
+    </h3>                 
+  </div>
+
+  <div class="line__top"></div>
+  <div class="footer__menu">
+    <ul class="footer__menus">
+      <li class="footer__menu-descr">
+        <a href="#aboutUs">О нас</a>
+      </li>
+      <li class="footer__menu-descr">
+        <a href="#services">
+          <i class="fa fa-circle"></i>Услуги
+        </a>
+      </li>      
+      <li class="footer__menu-descr">
+        <a href="#veterinarians">
+          <i class="fa fa-circle"></i>Ветеринары
+        </a>
+      </li>      
+      <li class="footer__menu-descr">
+        <a href="#news">
+          <i class="fa fa-circle fa__mob"></i>Новости
+        </a>
+      </li>      
+      <li class="footer__menu-descr">
+        <a href="#tips">
+          <i class="fa fa-circle"></i>Полезные советы
+        </a>
+      </li> 
+    </ul>
+
+    <div class="dropdown__descr">
+      <i class="fa fa-circle dropdown__img"></i>
+        <button class="dropdown__btn">Контакты</button> 
+      <i class="fa fa-caret-down"></i>
+
+      <div class="dropdown-content">
+        <a href="tel:996503942313">+996 (503) 94 23 13</a>
+        <a href="tel:996550634798">+996 (550) 63 47 98</a>
+        <a href="tel:996515527716">+996 (515) 52 77 16</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="line__bottom"></div>
+    <div class="footer__descr">
+      <p>Адрес: Г.Бишкек московская 207/5</p>
     </div>
 
-    <div class="line__top"></div>
-      <div class="footer__menu">
-        <ul class="footer__menus">
-          <li class="footer__menu-descr"><a href="#">О нас</a></li>
-          <li class="footer__menu-descr"><a href="#"><i class="fa fa-circle"></i>Услуги</a></li>      
-          <li class="footer__menu-descr"><a href="#"><i class="fa fa-circle"></i>Ветеринары</a></li>      
-          <li class="footer__menu-descr"><a href="#"><i class="fa fa-circle fa__mob"></i>Новости</a></li>      
-          <li class="footer__menu-descr"><a href="#"><i class="fa fa-circle"></i>Полезные советы</a></li> 
-        </ul>
-
-          <p class="dropdown__descr">
-            <i class="fa fa-circle dropdown__img"></i>Контакты <i class="fa fa-caret-down"></i>
-          </p>
-
-          <div class="dropdown-content">
-            <a href="#">+996 (503) 94 23 13</a>
-            <a href="#">+996 (550) 63 47 98</a>
-            <a href="#">+996 (515) 52 77 16</a>
-          </div>
-    </div>  
-    <div class="line__bottom"></div>
-
-      <div class="footer__descr">
-        <p>Адрес: Г.Бишкек московская 207/5</p>
-      </div>
-
-      <div class="footer__links">
-        <a href="" class="footer__link"><img src="./images/facebook.svg" alt="" class=""></a>
-        <a href="" class="footer__link"><img src="./images/instagram.svg" alt="" class=""></a>
-        <a href="" class="footer__link"><img src="./images/telegram.svg" alt="" class=""></a>   
-     </div>
-     <p class="footer__copyright"><i class="fa fa-copyright"></i>
-      2021  Vet Kg  Все права защищены </p>
+    <div class="footer__links">
+      <a href="" class="footer__link">
+        <img src="../static/images/facebook.svg" alt="" class="">
+      </a>
+      <a href="" class="footer__link">
+        <img src="../static/images/instagram.svg" alt="" class="">
+      </a>
+      <a href="" class="footer__link">
+        <img src="../static/images/telegram.svg" alt="" class="">
+      </a>   
+    </div>
+    <p class="footer__copyright">
+      <i class="fa fa-copyright"></i>2021  Vet Kg  Все права защищены 
+    </p>
   </div>
 </footer>
-
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
